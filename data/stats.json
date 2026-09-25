@@ -1,0 +1,20 @@
+{
+ "items_total": 492,
+ "per_level": {
+  "1": 23,
+  "2": 53,
+  "3": 59,
+  "4": 71,
+  "5": 72,
+  "6": 71,
+  "7": 71,
+  "8": 72
+ },
+ "stubs": 185,
+ "with_urls": 116,
+ "amp": 20,
+ "dup_num": 8,
+ "empty_or_question": 273,
+ "chars_median": 35,
+ "title_latin": 42
+}

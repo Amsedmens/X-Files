@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X-FILES · Путь к вскрытию — навигатор по архиву</title>
+<style>
+  :root{
+    --bg:#07090c; --panel:#0d1117; --panel2:#111823; --line:#1e2a38;
+    --fg:#d7e2ee; --dim:#7d8fa3; --acc:#39ff88; --acc2:#4ea1ff; --warn:#ff9d3d; --bad:#ff5a5a; --vio:#b48cff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+    font:15px/1.55 "JetBrains Mono","SFMono-Regular",Consolas,"Liberation Mono",monospace}
+  a{color:var(--acc2);text-decoration:none;word-break:break-all}
+  a:hover{text-decoration:underline}
+  header{padding:22px 20px 12px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#0a0f16,#07090c 90%)}
+  h1{margin:0;font-size:22px;letter-spacing:2px;text-transform:uppercase}
+  h1 span{color:var(--acc)}
+  .sub{color:var(--dim);margin-top:6px;font-size:13px}
+  .warnbox{margin:14px 20px 0;padding:10px 12px;border:1px solid #3a2a12;background:#170f06;
+    color:#e8c79a;font-size:12.5px;border-radius:6px}
+  nav{display:flex;gap:6px;flex-wrap:wrap;padding:12px 20px 0}
+  nav button{background:var(--panel);color:var(--dim);border:1px solid var(--line);
+    padding:7px 13px;border-radius:6px;cursor:pointer;font:inherit;font-size:13px}
+  nav button.on{color:var(--acc);border-color:#1f5136;background:#0c1a12}
+  main{padding:16px 20px 60px;max-width:1500px}
+  .grid{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:start}
+  @media (max-width:1000px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+  .card h2{margin:0 0 10px;font-size:14px;letter-spacing:1px;color:var(--acc);text-transform:uppercase}
+  .kpi{display:flex;flex-wrap:wrap;gap:14px}
+  .kpi div{min-width:110px}
+  .kpi b{display:block;font-size:20px;color:#fff}
+  .kpi small{color:var(--dim);font-size:11.5px}
+  .levels{display:flex;flex-direction:column-reverse;gap:4px;margin:6px 0 14px}
+  .lvl{display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);
+    border-radius:5px;cursor:pointer;font-size:12.5px;background:var(--panel2)}
+  .lvl:hover{border-color:#2a4a63}
+  .lvl.on{border-color:var(--acc);background:#0c1a12}
+  .lvl .n{color:var(--acc);width:18px;text-align:right}
+  .lvl .cnt{color:var(--dim);margin-left:auto}
+  .bar{height:6px;background:linear-gradient(90deg,var(--acc2),var(--vio));border-radius:3px}
+  input[type=search],select{width:100%;background:#0a1017;border:1px solid var(--line);color:var(--fg);
+    padding:9px 10px;border-radius:6px;font:inherit;font-size:13px;margin:4px 0}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{border:1px solid var(--line);background:var(--panel2);color:var(--dim);border-radius:20px;
+    padding:4px 10px;font-size:11.5px;cursor:pointer}
+  .chip.on{color:#fff;border-color:var(--acc2)}
+  .item{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:9px;padding:11px 13px}
+  .item h3{margin:0 0 6px;font-size:14.5px;color:#eaf3ff;font-weight:600}
+  .item .body{white-space:pre-wrap;color:#b9c7d6;font-size:13px;max-height:150px;overflow:hidden;
+    position:relative;margin:6px 0}
+  .item.open .body{max-height:none}
+  .item .body:after{content:"";position:absolute;left:0;right:0;bottom:0;height:44px;
+    background:linear-gradient(180deg,transparent,var(--panel))}
+  .item.open .body:after{display:none}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11px;color:var(--dim)}
+  .tag{border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--dim)}
+  .tag.l{color:var(--acc2);border-color:#22384f}
+  .tag.amp{color:var(--acc);border-color:#1f5136}
+  .tag.dup{color:var(--warn);border-color:#4a3418}
+  .tag.stub{color:var(--dim);border-style:dashed}
+  .tag.documented{color:#5dffa0;border-color:#1f5136}
+  .tag.unsolved{color:#61d5ff;border-color:#1c4152}
+  .tag.pseudo{color:#ffb457;border-color:#4a3418}
+  .tag.fiction{color:var(--vio);border-color:#382a52}
+  .tag.mixed{color:#8fb4ff;border-color:#28344a}
+  .tag.hate{color:#ff6b6b;border-color:#5a1f1f;background:#1d0f0f}
+  .tag.joke{color:#9aa7b4;border-color:#2a343d}
+  .verdict{margin:7px 0 2px;padding:8px 10px;border-left:3px solid var(--acc2);
+    background:#0a1017;font-size:12.5px;color:#c6d4e2;border-radius:0 5px 5px 0}
+  .verdict.hate{border-left-color:var(--bad);background:#160d0d}
+  .small{color:var(--dim);font-size:12px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+  th{color:var(--acc);font-weight:600}
+  ul{margin:6px 0 6px 18px;padding:0}
+  li{margin:3px 0}
+  .hide{display:none}
+  .tl{border-left:2px solid var(--line);margin-left:8px;padding-left:16px}
+  .tl .ev{margin-bottom:14px;position:relative}
+  .tl .ev:before{content:"";position:absolute;left:-23px;top:6px;width:9px;height:9px;border-radius:50%;
+    background:var(--acc);box-shadow:0 0 8px var(--acc)}
+  .tl .d{color:var(--acc);font-size:12px}
+  footer{color:var(--dim);font-size:12px;padding:0 20px 40px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:900px){.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>X-FILES <span>//</span> ПУТЬ К ВСКРЫТИЮ</h1>
+  <div class="sub" id="sub">загрузка архива…</div>
+</header>
+<div class="warnbox">
+  Архив собран как объект исследования. Приведённые в нём утверждения не подтверждаются этим разбором:
+  часть пунктов — документированная история, часть — псевдонаука, часть — вымысел, а отдельные пункты
+  воспроизводят антисемитские тропы (помечены красным). Это карта материала, а не его пропаганда.
+</div>
+<nav id="nav"></nav>
+<main>
+  <section id="tab-nav">
+    <div class="grid">
+      <div>
+        <div class="card">
+          <h2>Уровни</h2>
+          <div class="levels" id="levels"></div>
+          <h2>Фильтры</h2>
+          <input type="search" id="q" placeholder="поиск: слово, ссылка, номер…">
+          <select id="sort">
+            <option value="level">сортировка: по уровням</option>
+            <option value="chars">по объёму текста</option>
+            <option value="title">по алфавиту</option>
+          </select>
+          <div class="chips" id="chips"></div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <h2>Что найдено</h2>
+          <div class="kpi" id="kpi"></div>
+        </div>
+      </div>
+      <div>
+        <div class="small" id="count" style="margin-bottom:8px"></div>
+        <div id="list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-prov" class="hide">
+    <div class="card">
+      <h2>Цепочка происхождения</h2>
+      <div class="tl" id="tl"></div>
+      <div class="small">
+        Итог: «Путь к вскрытию» — это не самостоятельное исследование, а русский перевод англоязычного
+        «Conspiracy Theory Tier List» (10 тиров), сделанный анонимом в 2019 году и потом отформатированный.
+        Английская паста-первоисточник со ссылками удалена модерацией Pastebin 24.09.2022 — русская копия
+        оказалась старше и живучее оригинала.
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Что живо из источников</h2>
+      <table id="linktbl"></table>
+      <div class="small" style="margin-top:8px">Массовую проверку 202 ссылок из песочницы сделать нельзя
+        (исходящая сеть закрыта) — для этого в репозитории лежит <code>tools/check_links.py</code>.</div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Что не доехало при переводе</h2>
+      <ul>
+        <li><b>Уровень 6</b> остался без названия — в оригинале это <b>Tier 6: Transcended</b>.</li>
+        <li><b>Уровни 9 и 10</b> («Man of the World», «The Rebirth») в русскую структуру не попали —
+          их материал лежит в хвосте файла под заголовком «Тир - 0» и в «неформатированном мусоре».</li>
+        <li>Название 4-го уровня «Adept of Secrets» переведено как «Принятие секретов» — потерян «адепт».</li>
+        <li>Первоисточник вообще не терялся: это перевод, а не независимый список.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="tab-int" class="hide">
+    <div class="two">
+      <div class="card">
+        <h2>Целостность данных</h2>
+        <div id="integ"></div>
+      </div>
+      <div class="card">
+        <h2>Ссылки: что требует починки</h2>
+        <div class="small">Ссылки, которые не открываются как есть (пробелы внутри, отсутствие схемы,
+          кириллица без percent-encoding, непарные скобки). Автоматический проход нашёл проблемы
+          у <b id="urlcnt"></b> токенов; полный список — в data/url_problems.json.</div>
+        <div style="max-height:420px;overflow:auto;margin-top:8px"><table id="urltbl"></table></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Опечатки и артефакты</h2>
+      <table id="typotbl"></table>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>3.0 → 4.0</h2>
+      <div class="small" id="diffsum"></div>
+    </div>
+  </section>
+
+  <section id="tab-puz" class="hide">
+    <div class="card">
+      <h2>Разгаданные «пункты-калеки»</h2>
+      <div class="small" id="puznote"></div>
+      <table id="puztbl" style="margin-top:10px"></table>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Не опознано</h2>
+      <div class="small" id="unid"></div>
+    </div>
+  </section>
+
+  <section id="tab-sum" class="hide">
+    <div class="two">
+      <div class="card">
+        <h2>Проверка реальности: расклад</h2>
+        <div id="verdicts-stat"></div>
+        <div class="small" style="margin-top:10px">
+          Проверено вручную 66 пунктов из 492. Это выборка по значимым и проверяемым темам, а не приговор всему списку.
+          Легенда категорий — <a href="#" id="legendlink">ниже</a>.
+        </div>
+      </div>
+      <div class="card">
+        <h2>Аудит YouTube-каналов (2024)</h2>
+        <div id="yt"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Выводы</h2>
+      <div id="concl"></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Легенда</h2>
+      <div id="legend"></div>
+    </div>
+  </section>
+</main>
+<footer id="footer"></footer>
+
+<script>
+const $ = s => document.querySelector(s);
+let D = null, state = {level: null, q: '', sort: 'level', flags: new Set(), tab: 'nav'};
+
+const CATS = {
+  documented:{ru:'документировано'}, unsolved:{ru:'неразрешённая загадка'}, pseudo:{ru:'псевдонаука'},
+  fiction:{ru:'вымысел/мем'}, mixed:{ru:'смесь'}, hate:{ru:'конспирология ненависти'}, joke:{ru:'шутка/абсурд'}
+};
+
+const TABS = [['nav','Навигатор'],['prov','Происхождение'],['int','Целостность'],['puz','Разгадки'],['sum','Итоги']];
+
+function tab(name){
+  state.tab = name;
+  TABS.forEach(([k]) => {
+    $('#tab-'+k).classList.toggle('hide', k!==name);
+    document.querySelector(`nav button[data-t=${k}]`).classList.toggle('on', k===name);
+  });
+  window.scrollTo({top:0});
+}
+
+function fmt(n){ return n.toLocaleString('ru-RU'); }
+
+function filterItems(){
+  let arr = D.items.slice();
+  if (state.level) arr = arr.filter(i => i.level === state.level);
+  const q = state.q.trim().toLowerCase();
+  if (q) arr = arr.filter(i => (i.title+' '+i.body+' '+i.urls.join(' ')+' L'+i.level+'.'+i.num).toLowerCase().includes(q));
+  if (state.flags.has('amp')) arr = arr.filter(i => i.amp);
+  if (state.flags.has('stub')) arr = arr.filter(i => i.chars < 25);
+  if (state.flags.has('urls')) arr = arr.filter(i => i.urls.length);
+  if (state.flags.has('checked')) arr = arr.filter(i => i.verdict);
+  if (state.flags.has('hate')) arr = arr.filter(i => i.verdict && i.verdict.cat === 'hate');
+  if (state.sort === 'chars') arr.sort((a,b)=>b.chars-a.chars);
+  else if (state.sort === 'title') arr.sort((a,b)=>a.title.localeCompare(b.title,'ru'));
+  return arr;
+}
+
+function renderList(){
+  const arr = filterItems();
+  $('#count').textContent = `показано ${fmt(arr.length)} из ${fmt(D.items.length)} пунктов`;
+  const html = arr.map(i => {
+    const v = i.verdict;
+    const tags = [
+      `<span class="tag l">L${i.level}${i.level_name && i.level_name!=='(без названия)' ? ' · '+esc(i.level_name) : ''}</span>`,
+      `<span class="tag">№${i.num}</span>`,
+      i.amp ? '<span class="tag amp">&amp; — кандидат в вики</span>' : '',
+      i.dup ? '<span class="tag dup">дубль номера</span>' : '',
+      i.chars < 25 ? '<span class="tag stub">заглушка</span>' : '',
+      v ? `<span class="tag ${v.cat}">${CATS[v.cat]?CATS[v.cat].ru:v.cat}</span>` : ''
+    ].join('');
+    const urls = i.urls.length ? `<div class="small" style="margin-top:6px">${i.urls.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>`).join('<br>')}</div>` : '';
+    const verd = v ? `<div class="verdict ${v.cat==='hate'?'hate':''}"><b>${CATS[v.cat]?CATS[v.cat].ru:v.cat}:</b> ${esc(v.text)}
+      ${v.sources && v.sources.length ? '<br><span class="small">источники: '+v.sources.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(short(u))}</a>`).join(' · ')+'</span>' : ''}</div>` : '';
+    const body = i.body ? `<div class="body">${esc(i.body)}</div>` : '<div class="small" style="margin:6px 0">— пусто —</div>';
+    return `<div class="item" data-id="${i.id}">
+      <h3>${esc(i.title)}</h3>
+      <div class="meta">${tags}</div>
+      ${body}${verd}${urls}
+      <div class="small" style="margin-top:6px;color:#5f6f80">строка ${i.line} · ${i.chars} симв. · нажми, чтобы раскрыть</div>
+    </div>`;
+  }).join('');
+  $('#list').innerHTML = html || '<div class="small">Ничего не найдено.</div>';
+}
+
+function short(u){ try{ const x=new URL(u); return x.hostname; }catch(e){ return u.slice(0,40); } }
+function esc(s){ return (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+document.addEventListener('click', e => {
+  const it = e.target.closest('.item');
+  if (it && !e.target.closest('a')) it.classList.toggle('open');
+});
+
+function init(){
+  $('#sub').innerHTML = `индекс архива · <b>${fmt(D.items.length)}</b> пунктов · 8 уровней · `
+    + `<b>${fmt(D.stats.with_urls)}</b> пунктов со ссылками · сборка ${esc(D.generated)}`;
+  $('#footer').innerHTML = `Источник: репозиторий X-Files (Amsedmens). Индекс и разбор собраны автоматически + ручная проверка выборки.`;
+
+  $('#nav').innerHTML = TABS.map(([k,t]) => `<button data-t="${k}" class="${k==='nav'?'on':''}">${t}</button>`).join('');
+  $('#nav').onclick = e => { const b = e.target.closest('button'); if (b) tab(b.dataset.t); };
+
+  // уровни
+  const per = D.stats.per_level;
+  const max = Math.max(...Object.values(per));
+  $('#levels').innerHTML = `<div class="lvl ${state.level===null?'on':''}" data-l="all">
+      <span class="n">Σ</span><span>весь архив</span><span class="cnt">${fmt(D.items.length)}</span></div>` +
+    Object.keys(per).map(l => {
+      const m = D.levels.find(x => x.level == l) || {};
+      return `<div class="lvl ${state.level==l?'on':''}" data-l="${l}" title="${esc(m.orig||'')}">
+        <span class="n">${l}</span><span>${esc(m.name||'')}</span><span class="cnt">${per[l]}</span>
+      </div><div class="bar" style="width:${Math.round(per[l]/max*100)}%"></div>`;
+    }).join('');
+  $('#levels').onclick = e => {
+    const d = e.target.closest('.lvl'); if (!d) return;
+    state.level = d.dataset.l === 'all' ? null : +d.dataset.l;
+    document.querySelectorAll('.lvl').forEach(x => x.classList.toggle('on', x.dataset.l === d.dataset.l));
+    renderList();
+  };
+
+  $('#q').oninput = e => { state.q = e.target.value; renderList(); };
+  $('#sort').onchange = e => { state.sort = e.target.value; renderList(); };
+
+  const FLAGS = [['amp','& — кандидаты в вики'],['stub','только заглушки'],['urls','только со ссылками'],
+                 ['checked','проверенные вручную'],['hate','конспирология ненависти']];
+  $('#chips').innerHTML = FLAGS.map(([k,t]) => `<span class="chip" data-f="${k}">${t}</span>`).join('');
+  $('#chips').onclick = e => {
+    const c = e.target.closest('.chip'); if (!c) return;
+    const f = c.dataset.f;
+    state.flags.has(f) ? state.flags.delete(f) : state.flags.add(f);
+    c.classList.toggle('on'); renderList();
+  };
+
+  // KPI
+  const st = D.stats;
+  $('#kpi').innerHTML = [
+    ['пунктов', fmt(st.items_total)], ['заглушек (<25 симв.)', fmt(st.stub_count||st.stubs)],
+    ['с пометкой &', fmt(st.amp)], ['дублей номеров', fmt(st.dup_num)],
+    ['проверено вручную', fmt(D.items.filter(i=>i.verdict).length)],
+    ['проблемных ссылок', fmt(D.integrity.url_problems_count)]
+  ].map(([k,v]) => `<div><b>${v}</b><small>${k}</small></div>`).join('');
+
+  // происхождение
+  $('#tl').innerHTML = D.provenance.map(p => `<div class="ev"><div class="d">${esc(p.date)}</div>
+    <div>${esc(p.text)}</div>${p.src?`<div class="small"><a href="${esc(p.src)}" target="_blank" rel="noopener">${esc(short(p.src))}</a></div>`:''}</div>`).join('');
+
+  // источники
+  $('#linktbl').innerHTML = '<tr><th>ссылка</th><th>статус</th><th>что найдено</th></tr>' +
+    D.link_samples.map(l => `<tr><td><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.url)}</a></td>
+      <td class="small">${esc(l.status)}</td><td class="small">${esc(l.note)}</td></tr>`).join('');
+
+  // целостность
+  const I = D.integrity;
+  $('#integ').innerHTML = `<ul>
+    <li>пунктов всего: <b>${fmt(D.stats.items_total)}</b>, из них заглушек (меньше 25 символов): <b>${fmt(I.stub_count)}</b>;
+      с текстом «???» или пустым телом: <b>${fmt(D.stats.empty_or_question)}</b></li>
+    <li>дублирующиеся номера внутри уровней: <b>${I.dup_items.length}</b> — ${I.dup_items.map(x=>'<code>'+x+'</code>').join(', ')}</li>
+    <li>уровень 6 не имеет названия; уровень 4 содержит два списка с перезапуском нумерации (дубли Monsanto/Vimanas)</li>
+    <li>заглушки по уровням: ${Object.entries(I.stubs_by_level).map(([l,n])=>`L${l}: ${n}`).join(' · ')}</li>
+    <li>файлы: ${D.source.files.map(f=>`${esc(f.name)} — ${f.bytes?fmt(Math.round(f.bytes/1024))+' КБ':''}${f.lines?', '+fmt(f.lines)+' строк':''}`).join('; ')}</li>
+    <li>хвост файла после маркера «VVV НИЖЕ НЕФОРМАТИРОВАННЫЙ ТЕКСТОВЫЙ МУСОР VVV» — 213 строк, это на самом деле материал
+      уровней 9/10 и «тир 0» из оригинала плюс личные заметки автора</li>
+  </ul>`;
+  $('#urlcnt').textContent = D.integrity.url_problems_count;
+  $('#urltbl').innerHTML = '<tr><th>файл:строка</th><th>токен</th><th>проблема</th></tr>' +
+    D.integrity.url_problems.slice(0, 400).map(u => `<tr><td class="small">${esc(u.file.replace('.txt',''))}:${u.line}</td>
+      <td><code>${esc(u.token.slice(0,90))}</code></td><td class="small">${esc(u.issues)}</td></tr>`).join('');
+  $('#typotbl').innerHTML = '<tr><th>как в файле</th><th>должно быть</th><th>где</th></tr>' +
+    I.typos.map(t => `<tr><td><code>${esc(t.bad)}</code> ×${t.count}</td><td><code>${esc(t.good)}</code></td><td class="small">${esc(t.comment)}</td></tr>`).join('');
+  $('#diffsum').innerHTML = `<ul>
+      <li>3.0: <b>490</b> пунктов, 4.0: <b>492</b> (добавлены повторно Monsanto и Vimanas — фактически дубли)</li>
+      <li>идентичных пунктов: <b>372</b>; изменённых: <b>118</b>; из них 13 пунктов получили новые описания объёмом +190…+490 символов</li>
+      <li>сверх того в 4.0 добавлена таблица «рейтинг достоверности» из 16 пунктов (МК-Ультра 9/10, Манхэттен 9/10 и т.д.) —
+        эти тексты написаны не автором оригинала, а позже (стиль и формулировки это выдают)</li>
+      <li>полный дифф: <code>data/diff_3.0_4.0.md</code></li></ul>`;
+
+  // разгадки
+  const P = D.puzzles;
+  $('#puznote').innerHTML = esc(P.note);
+  const CONF = {high:'уверенно', medium:'вероятно', low:'гипотеза'};
+  $('#puztbl').innerHTML = '<tr><th>пункт</th><th>как в архиве</th><th>что это на самом деле</th><th>уверенность</th></tr>' +
+    P.items.map(p => `<tr><td class="small">${esc(p.id)}</td><td><code>${esc(p.ru)}</code></td>
+      <td>${esc(p.explain)} ${p.sources?p.sources.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">[источник]</a>`).join(' '):''}</td>
+      <td class="small">${CONF[p.conf]||''}</td></tr>`).join('');
+  $('#unid').innerHTML = 'Эти пункты пока не удалось привязать к источнику: ' + P.unidentified.map(esc).join('; ') + '.';
+
+  // итоги
+  const cnt = {};
+  D.items.filter(i=>i.verdict).forEach(i => cnt[i.verdict.cat] = (cnt[i.verdict.cat]||0)+1);
+  $('#verdicts-stat').innerHTML = '<table><tr><th>категория</th><th>шт.</th></tr>' +
+    Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td><span class="tag ${k}">${CATS[k]?CATS[k].ru:k}</span></td><td><b>${v}</b></td></tr>`).join('') + '</table>';
+  $('#yt').innerHTML = `<b>${esc(D.youtube_audit.title)}</b><ul>` + D.youtube_audit.lines.map(l=>`<li>${esc(l)}</li>`).join('') + '</ul>';
+  $('#concl').innerHTML = `<ul>
+    <li><b>Архив — это перевод, а не исследование.</b> 8 «уровней вскрытия» — тиры англоязычного мема-чарта 2017-2018 годов.
+      Это не шкала истины, а шкала эзотеричности: уровень 1 смешивает документированные операции (Зона 51, Big Pharma-скандалы)
+      с выдумками (Нибиру, плоская Земля).</li>
+    <li><b>Уровень ≠ достоверность.</b> Самая ценная вещь в списке — не «глубокие» пункты, а те, где конспирология
+      совпадает с историей: MKUltra, «Гладио», «Скрепка», Таскиги, Трёхсторонняя комиссия, инцидент Вела.</li>
+    <li><b>Что действительно «вскрыто».</b> Оригинал на английском удалён модерацией Pastebin в 2022-м, а русская ветка
+      жива. Репозиторий X-Files фактически стал последней сохранённой копией этого слоя интернет-фольклора —
+      поэтому его стоит привести в порядок как архив (ссылки, даты, пометки о типе утверждения).</li>
+    <li><b>Где список опасен.</b> Не там, где он смешной (Time Cube, Финляндия не существует), а там, где он
+      антисемитский: «Протоколы», «евреи у власти», «пещерный обитатель Холокоста». Это уже не гипотезы о мире,
+      а готовые шаблоны ненависти — и в архиве они должны быть помечены.</li>
+    <li><b>Практический вывод.</b> К архиву прикручены: индекс (data/index_4.0.csv), список проблемных ссылок,
+      список опечаток, дифф версий и разбор «пунктов-калек». Дальше — вики-страницы для 20 пунктов с (&).</li>
+  </ul>`;
+  $('#legend').innerHTML = Object.entries(D.verdicts_legend).map(([k,v]) =>
+    `<div style="margin-bottom:6px"><span class="tag ${k}">${CATS[k]?CATS[k].ru:k}</span> ${esc(v)}</div>`).join('');
+  $('#legendlink').onclick = e => { e.preventDefault(); $('#legend').scrollIntoView({behavior:'smooth'}); };
+  $('#legendlink').removeAttribute('id');
+
+  renderList();
+}
+
+fetch('data.json').then(r => r.json()).then(d => { D = d; init(); })
+  .catch(e => {
+    $('#sub').innerHTML = 'Не удалось загрузить data.json — открой страницу через локальный сервер '
+      + '(например, <code>python3 -m http.server</code> из корня репозитория, затем <code>/site/index.html</code>).';
+  });
+</script>
+</body>
+</html>

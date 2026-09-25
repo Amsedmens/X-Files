@@ -1,0 +1,625 @@
+[
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 39,
+  "token": "https://ru.wikipedia.org/wiki/Вся_правда_о_лекарствах:_мировой_заговор_фармкомпаний",
+  "issues": "кириллица без percent-encoding",
+  "context": "Новеллы, этот термин стал означать демонизированную форму фармацевтической промышленности https://ru"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 48,
+  "token": "PadmaMcCordEnterprises.biz",
+  "issues": "нет схемы",
+  "context": "Странная часть, у нее есть несколько блогов. Ничего существенного, просто ссылки на ее видео на Yout"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 52,
+  "token": "https://ru.m.wikipedia.org/wiki/Атлантида",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.m.wikipedia.org/wiki/Атлантида"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 111,
+  "token": "https://ru.wikipedia.org/wiki/Новый_мировой_порядок_(конспирология)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Новый_мировой_порядок_(конспирология)"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 123,
+  "token": "https://ru.wikipedia.org/wiki/Проект_«МК_Ультра»",
+  "issues": "кириллица без percent-encoding",
+  "context": "- https://ru.wikipedia.org/wiki/Проект_«МК_Ультра»"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 183,
+  "token": "https://ru.wikipedia.org/wiki/Мальчик_в_коробке",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Мальчик_в_коробке"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 235,
+  "token": "https://ru.wikipedia.org/wiki/Богемская_роща",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Богемская_роща"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 287,
+  "token": "wikipedia.org/wiki/SEALAB.",
+  "issues": "нет схемы; мусорный хвост",
+  "context": "Ничего конкретного нет. Все имеющиеся отсылки ведут к en. wikipedia.org/wiki/SEALAB. Некий аналог \"р"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 293,
+  "token": "edition.cnn.com/2013/12/09/tech/web/nsa-spying-video-games/index.html",
+  "issues": "нет схемы",
+  "context": "edition.cnn.com/2013/12/09/tech/web/nsa-spying-video-games/index.html"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 298,
+  "token": "en.wikipedia.org/wiki/John_Babbacombe_Lee",
+  "issues": "нет схемы",
+  "context": "en.wikipedia.org/wiki/John_Babbacombe_Lee"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 303,
+  "token": "ru.wikipedia.org/wiki/Василиск_Роко",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru.wikipedia.org/wiki/Василиск_Роко"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 327,
+  "token": "ru.wikipedia.org/wiki/Сакральная_геометрия",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru.wikipedia.org/wiki/Сакральная_геометрия"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 340,
+  "token": "www.irishexaminer.com/lifestyle/features/humaninterest/predictions-of-a-black-pope-and-our-demise-are-greatly-exaggerated-225911.html",
+  "issues": "нет схемы",
+  "context": "Некоторые люди даже пытались связать нового папу с именем Петр. Ссылки были незначительными, если не"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 350,
+  "token": "wikipedia.org/wiki/Розенкрейцеры",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru. wikipedia.org/wiki/Розенкрейцеры"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 365,
+  "token": "ru.wikipedia.org/wiki/Плерома",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru.wikipedia.org/wiki/Плерома"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 372,
+  "token": "wikipedia.org/wiki/The_Division_Bell#Тур",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru. wikipedia.org/wiki/The_Division_Bell#Тур"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 395,
+  "token": "wikipedia.org/wiki/Солипсизм",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru. wikipedia.org/wiki/Солипсизм"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 398,
+  "token": "https://ru.wikipedia.org/wiki/Туле_(легендарный_остров)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Туле_(легендарный_остров)"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 407,
+  "token": "wikipedia.org/wiki/Генотеизм",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https://ru. wikipedia.org/wiki/Генотеизм"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 410,
+  "token": "https://ru.wikipedia.org/wiki/Квантовый_скачок",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Квантовый_скачок"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 416,
+  "token": "ru.wikipedia.org/wiki/Фулканелли",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https:// ru.wikipedia.org/wiki/Фулканелли"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 428,
+  "token": "ru.wikipedia.org/wiki/Долина_Кувшинов",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https:// ru.wikipedia.org/wiki/Долина_Кувшинов"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 434,
+  "token": "https://ru.wikipedia.org/wiki/Билефельдский_заговор",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Билефельдский_заговор"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 445,
+  "token": "ru.wikipedia.org/wiki/Танцевальная_чума_1518_года",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https:// ru.wikipedia.org/wiki/Танцевальная_чума_1518_года"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 448,
+  "token": "https://ru.wikipedia.org/wiki/Панспермия",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Панспермия"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 457,
+  "token": "https://ru.wikipedia.org/Принцип_Маха",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/Принцип_Маха"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 460,
+  "token": "https://ru.wikipedia.org/wiki/Одичавшие_дети",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Одичавшие_дети"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 463,
+  "token": "https://ru.wikipedia.org/wiki/Антинатализм",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Антинатализм"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 466,
+  "token": "https://ru.wikipedia.org/wiki/Форт,_Чарльз",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Форт,_Чарльз"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 476,
+  "token": "https://ru.wikipedia.org/wiki/Олгой-хорхой_(животное)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Олгой-хорхой_(животное)"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 479,
+  "token": "https://ru.wikipedia.org/wiki/Гейдар_(психология)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Гейдар_(психология)"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 636,
+  "token": "https://ru.wikipedia.org/wiki/Анимизм",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Анимизм"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 656,
+  "token": "https://ru.wikipedia.org/wiki/Манихейство",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Манихейство"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 749,
+  "token": "systemspace.link",
+  "issues": "нет схемы",
+  "context": "systemspace.link"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 774,
+  "token": "https://ru.wikipedia.org/wiki/Акселерационизм",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Акселерационизм"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 842,
+  "token": "https://ru.m.wikipedia.org/wiki/Человеческий_зоопарк",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.m.wikipedia.org/wiki/Человеческий_зоопарк"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 993,
+  "token": "https://ru.wikipedia.org/wiki/Увечье_скота",
+  "issues": "кириллица без percent-encoding",
+  "context": "На удивление очень немутная тема наравне с увечьями скота https://ru.wikipedia.org/wiki/Увечье_скота"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1107,
+  "token": "https://ru.wikipedia.org/wiki/Овертонский_мост",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Овертонский_мост"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1401,
+  "token": "https://ru.wikipedia.org/wiki/Кодификация",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Кодификация"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1516,
+  "token": "https://ru.wikipedia.org/wiki/Гипотеза_расширяющейся_Земли",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Гипотеза_расширяющейся_Земли"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1618,
+  "token": "https://ru.m.wikipedia.org/wiki/Бесконечная_вложенность_материи",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.m.wikipedia.org/wiki/Бесконечная_вложенность_материи"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1627,
+  "token": "https://ru.wikipedia.org/wiki/Атлантида",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Атлантида - Атлантида(популярна как на западе, так и у нас)"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1629,
+  "token": "ru-an.info/новости/великая-тартария-была-стёрта-с-лица-земли-ядерными-бомбардировками/",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru-an.info/новости/великая-тартария-была-стёрта-с-лица-земли-ядерными-бомбардировками/ - Тартария (Р"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1742,
+  "token": "www.rameshtalks.com",
+  "issues": "нет схемы",
+  "context": "Попытаюсь объяснить на пальцах...речь пойдет об этом видео: [YouTube] The final Understanding (www.r"
+ },
+ {
+  "file": "Путь к вскрытию 3.0.txt",
+  "line": 1784,
+  "token": "https://ru.wikipedia.org/wiki/Джеф_(мангуст)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Джеф_(мангуст)"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 56,
+  "token": "https://ru.wikipedia.org/wiki/Вся_правда_о_лекарствах:_мировой_заговор_фармкомпаний",
+  "issues": "кириллица без percent-encoding",
+  "context": "Новеллы, этот термин стал означать демонизированную форму фармацевтической промышленности https://ru"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 63,
+  "token": "PadmaMcCordEnterprises.biz",
+  "issues": "нет схемы",
+  "context": "Странная часть, у нее есть несколько блогов. Ничего существенного, просто ссылки на ее видео на Yout"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 66,
+  "token": "https://ru.m.wikipedia.org/wiki/Атлантида",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.m.wikipedia.org/wiki/Атлантида"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 111,
+  "token": "https://ru.wikipedia.org/wiki/Новый_мировой_порядок_(конспирология)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Новый_мировой_порядок_(конспирология)"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 177,
+  "token": "https://ru.wikipedia.org/wiki/Мальчик_в_коробке",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Мальчик_в_коробке"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 236,
+  "token": "https://ru.wikipedia.org/wiki/Богемская_роща",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Богемская_роща"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 289,
+  "token": "wikipedia.org/wiki/SEALAB.",
+  "issues": "нет схемы; мусорный хвост",
+  "context": "Ничего конкретного нет. Все имеющиеся отсылки ведут к en. wikipedia.org/wiki/SEALAB. Некий аналог \"р"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 295,
+  "token": "edition.cnn.com/2013/12/09/tech/web/nsa-spying-video-games/index.html",
+  "issues": "нет схемы",
+  "context": "edition.cnn.com/2013/12/09/tech/web/nsa-spying-video-games/index.html"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 299,
+  "token": "en.wikipedia.org/wiki/John_Babbacombe_Lee",
+  "issues": "нет схемы",
+  "context": "en.wikipedia.org/wiki/John_Babbacombe_Lee"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 304,
+  "token": "ru.wikipedia.org/wiki/Василиск_Роко",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru.wikipedia.org/wiki/Василиск_Роко"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 328,
+  "token": "ru.wikipedia.org/wiki/Сакральная_геометрия",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru.wikipedia.org/wiki/Сакральная_геометрия"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 341,
+  "token": "www.irishexaminer.com/lifestyle/features/humaninterest/predictions-of-a-black-pope-and-our-demise-are-greatly-exaggerated-225911.html",
+  "issues": "нет схемы",
+  "context": "Некоторые люди даже пытались связать нового папу с именем Петр. Ссылки были незначительными, если не"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 351,
+  "token": "wikipedia.org/wiki/Розенкрейцеры",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru. wikipedia.org/wiki/Розенкрейцеры"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 366,
+  "token": "ru.wikipedia.org/wiki/Плерома",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru.wikipedia.org/wiki/Плерома"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 373,
+  "token": "wikipedia.org/wiki/The_Division_Bell#Тур",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru. wikipedia.org/wiki/The_Division_Bell#Тур"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 391,
+  "token": "wikipedia.org/wiki/Солипсизм",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru. wikipedia.org/wiki/Солипсизм"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 393,
+  "token": "https://ru.wikipedia.org/wiki/Туле_(легендарный_остров)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Туле_(легендарный_остров)"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 399,
+  "token": "wikipedia.org/wiki/Генотеизм",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https://ru. wikipedia.org/wiki/Генотеизм"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 401,
+  "token": "https://ru.wikipedia.org/wiki/Квантовый_скачок",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Квантовый_скачок"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 405,
+  "token": "ru.wikipedia.org/wiki/Фулканелли",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https:// ru.wikipedia.org/wiki/Фулканелли"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 413,
+  "token": "ru.wikipedia.org/wiki/Долина_Кувшинов",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https:// ru.wikipedia.org/wiki/Долина_Кувшинов"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 417,
+  "token": "https://ru.wikipedia.org/wiki/Билефельдский_заговор",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Билефельдский_заговор"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 426,
+  "token": "ru.wikipedia.org/wiki/Танцевальная_чума_1518_года",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "https:// ru.wikipedia.org/wiki/Танцевальная_чума_1518_года"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 428,
+  "token": "https://ru.wikipedia.org/wiki/Панспермия",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Панспермия"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 436,
+  "token": "https://ru.wikipedia.org/Принцип_Маха",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/Принцип_Маха"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 438,
+  "token": "https://ru.wikipedia.org/wiki/Одичавшие_дети",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Одичавшие_дети"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 440,
+  "token": "https://ru.wikipedia.org/wiki/Антинатализм",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Антинатализм"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 442,
+  "token": "https://ru.wikipedia.org/wiki/Форт,_Чарльз",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Форт,_Чарльз"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 451,
+  "token": "https://ru.wikipedia.org/wiki/Олгой-хорхой_(животное)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Олгой-хорхой_(животное)"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 453,
+  "token": "https://ru.wikipedia.org/wiki/Гейдар_(психология)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Гейдар_(психология)"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 606,
+  "token": "https://ru.wikipedia.org/wiki/Анимизм",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Анимизм"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 625,
+  "token": "https://ru.wikipedia.org/wiki/Манихейство",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Манихейство"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 718,
+  "token": "systemspace.link",
+  "issues": "нет схемы",
+  "context": "systemspace.link"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 743,
+  "token": "https://ru.wikipedia.org/wiki/Акселерационизм",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Акселерационизм"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 811,
+  "token": "https://ru.m.wikipedia.org/wiki/Человеческий_зоопарк",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.m.wikipedia.org/wiki/Человеческий_зоопарк"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 962,
+  "token": "https://ru.wikipedia.org/wiki/Увечье_скота",
+  "issues": "кириллица без percent-encoding",
+  "context": "На удивление очень немутная тема наравне с увечьями скота https://ru.wikipedia.org/wiki/Увечье_скота"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1076,
+  "token": "https://ru.wikipedia.org/wiki/Овертонский_мост",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Овертонский_мост"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1370,
+  "token": "https://ru.wikipedia.org/wiki/Кодификация",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Кодификация"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1485,
+  "token": "https://ru.wikipedia.org/wiki/Гипотеза_расширяющейся_Земли",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Гипотеза_расширяющейся_Земли"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1587,
+  "token": "https://ru.m.wikipedia.org/wiki/Бесконечная_вложенность_материи",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.m.wikipedia.org/wiki/Бесконечная_вложенность_материи"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1596,
+  "token": "https://ru.wikipedia.org/wiki/Атлантида",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Атлантида - Атлантида(популярна как на западе, так и у нас)"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1598,
+  "token": "ru-an.info/новости/великая-тартария-была-стёрта-с-лица-земли-ядерными-бомбардировками/",
+  "issues": "нет схемы; кириллица без percent-encoding",
+  "context": "ru-an.info/новости/великая-тартария-была-стёрта-с-лица-земли-ядерными-бомбардировками/ - Тартария (Р"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1711,
+  "token": "www.rameshtalks.com",
+  "issues": "нет схемы",
+  "context": "Попытаюсь объяснить на пальцах...речь пойдет об этом видео: [YouTube] The final Understanding (www.r"
+ },
+ {
+  "file": "Путь к вскрытию 4.0.txt",
+  "line": 1753,
+  "token": "https://ru.wikipedia.org/wiki/Джеф_(мангуст)",
+  "issues": "кириллица без percent-encoding",
+  "context": "https://ru.wikipedia.org/wiki/Джеф_(мангуст)"
+ }
+]
