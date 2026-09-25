@@ -140,6 +140,12 @@
       </div>
     </div>
     <div class="card" style="margin-top:14px">
+      <h2>Что живо из источников</h2>
+      <table id="linktbl"></table>
+      <div class="small" style="margin-top:8px">Массовую проверку 202 ссылок из песочницы сделать нельзя
+        (исходящая сеть закрыта) — для этого в репозитории лежит <code>tools/check_links.py</code>.</div>
+    </div>
+    <div class="card" style="margin-top:14px">
       <h2>Что не доехало при переводе</h2>
       <ul>
         <li><b>Уровень 6</b> остался без названия — в оригинале это <b>Tier 6: Transcended</b>.</li>
@@ -337,6 +343,11 @@ function init(){
   // происхождение
   $('#tl').innerHTML = D.provenance.map(p => `<div class="ev"><div class="d">${esc(p.date)}</div>
     <div>${esc(p.text)}</div>${p.src?`<div class="small"><a href="${esc(p.src)}" target="_blank" rel="noopener">${esc(short(p.src))}</a></div>`:''}</div>`).join('');
+
+  // источники
+  $('#linktbl').innerHTML = '<tr><th>ссылка</th><th>статус</th><th>что найдено</th></tr>' +
+    D.link_samples.map(l => `<tr><td><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.url)}</a></td>
+      <td class="small">${esc(l.status)}</td><td class="small">${esc(l.note)}</td></tr>`).join('');
 
   // целостность
   const I = D.integrity;
